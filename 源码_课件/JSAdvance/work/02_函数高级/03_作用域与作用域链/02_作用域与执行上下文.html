@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>02_作用域与执行上下文</title>
 </head>
+
 <body>
-<!--
+  <!--
 1. 区别1
   * 全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时
   * 全局执行上下文环境是在全局作用域确定之后, js代码马上执行之前创建
@@ -18,23 +20,24 @@
   * 全局上下文环境==>全局作用域
   * 函数上下文环境==>对应的函数使用域
 -->
-<script type="text/javascript">
-  var a = 10,
-    b = 20
-  function fn(x) {
-    var a = 100,
-      c = 300;
-    console.log('fn()', a, b, c, x)
-    function bar(x) {
-      var a = 1000,
-        d = 400
-      console.log('bar()', a, b, c, d, x)
-    }
+  <script type="text/javascript">
+    var a = 10,
+      b = 20
+    function fn(x) {
+      var a = 100,
+        c = 300;
+      console.log('fn()', a, b, c, x)
+      function bar(x) {
+        var a = 1000,
+          d = 400
+        console.log('bar()', a, b, c, d, x)
+      }
 
-    bar(100)
-    bar(200)
-  }
-  fn(10)
-</script>
+      bar(100)
+      bar(200)
+    }
+    fn(10)
+  </script>
 </body>
+
 </html>
