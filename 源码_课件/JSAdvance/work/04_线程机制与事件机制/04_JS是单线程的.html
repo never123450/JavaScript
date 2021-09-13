@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>04_JS是单线程的</title>
 </head>
+
 <body>
-<!--
+  <!--
 1. 如何证明js执行是单线程的?
   * setTimeout()的回调函数是在主线程执行的
   * 定时器回调函数只有在运行栈中的代码全部执行完后才有可能执行
@@ -24,26 +26,27 @@
     * 发送ajax请求
   * 后面在某个时刻才会执行回调代码
 -->
-<script type="text/javascript">
-  setTimeout(function () {
-    console.log('timeout 2222')
-    alert('22222222')
-  }, 2000)
-  setTimeout(function () {
-    console.log('timeout 1111')
-    alert('1111111')
-  }, 1000)
-  setTimeout(function () {
-    console.log('timeout() 00000')
-  }, 0)
-  function fn() {
-    console.log('fn()')
-  }
-  fn()
+  <script type="text/javascript">
+    setTimeout(function () {
+      console.log('timeout 2222')
+      alert('22222222')
+    }, 2000)
+    setTimeout(function () {
+      console.log('timeout 1111')
+      alert('1111111')
+    }, 1000)
+    setTimeout(function () {
+      console.log('timeout() 00000')
+    }, 0)
+    function fn() {
+      console.log('fn()')
+    }
+    fn()
 
-  console.log('alert()之前')
-  alert('------') //暂停当前主线程的执行, 同时暂停计时, 点击确定后, 恢复程序执行和计时
-  console.log('alert()之后')
-</script>
+    console.log('alert()之前')
+    alert('------') //暂停当前主线程的执行, 同时暂停计时, 点击确定后, 恢复程序执行和计时
+    console.log('alert()之后')
+  </script>
 </body>
+
 </html>
